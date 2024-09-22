@@ -16,7 +16,7 @@ const CartTotals = () => {
           </div>
           <div className="flex items-center gap-1">
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<PlusCircleOutlined />}></Button>
-            <span>1</span>
+            <span className="font-bold">1</span>
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<MinusCircleOutlined />}></Button>
           </div>
         </li>
@@ -30,7 +30,7 @@ const CartTotals = () => {
           </div>
           <div className="flex items-center gap-1">
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<PlusCircleOutlined />}></Button>
-            <span>1</span>
+            <span className="font-bold">1</span>
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<MinusCircleOutlined />}></Button>
           </div>
         </li><li className="cart-item flex justify-between">
@@ -43,10 +43,11 @@ const CartTotals = () => {
           </div>
           <div className="flex items-center gap-1">
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<PlusCircleOutlined />}></Button>
-            <span>1</span>
+            <span className="font-bold">1</span>
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<MinusCircleOutlined />}></Button>
           </div>
-        </li><li className="cart-item flex justify-between">
+        </li>
+        <li className="cart-item flex justify-between">
           <div className="flex items-center">
             <img className="w-16 h-16 object-cover pt-2" src="https://i.lezzet.com.tr/images-xxlarge-secondary/elma-nasil-yenir-221135ca-f383-474c-a4f5-ad02a45db978.jpg" alt="" />
             <div className="flex flex-col ml-2">
@@ -56,7 +57,21 @@ const CartTotals = () => {
           </div>
           <div className="flex items-center gap-1">
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<PlusCircleOutlined />}></Button>
-            <span>1</span>
+            <span className="font-bold">1</span>
+            <Button className="w-full !rounded-full" type="primary" size="small" icon={<MinusCircleOutlined />}></Button>
+          </div>
+        </li>
+        <li className="cart-item flex justify-between">
+          <div className="flex items-center">
+            <img className="w-16 h-16 object-cover pt-2" src="https://i.lezzet.com.tr/images-xxlarge-secondary/elma-nasil-yenir-221135ca-f383-474c-a4f5-ad02a45db978.jpg" alt="" />
+            <div className="flex flex-col ml-2">
+              <strong>Apple</strong>
+              <span>2$ x 3</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-1">
+            <Button className="w-full !rounded-full" type="primary" size="small" icon={<PlusCircleOutlined />}></Button>
+            <span className="font-bold">1</span>
             <Button className="w-full !rounded-full" type="primary" size="small" icon={<MinusCircleOutlined />}></Button>
           </div>
         </li>
