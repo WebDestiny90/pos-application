@@ -11,7 +11,7 @@ const PrintBill = ({ isModalOpen, setIsModalOpen }) => {
               <h2 className="text-4xl font-bold text-slate-700">LOGO</h2>
             </div>
             <div className="bill-details">
-              <div className="grid grid-cols-4 gap-12">
+              <div className="grid sm:grid-cols-4 grid-cols-3 gap-12">
                 <div className="text-md text-slate-500">
                   <p className="font-bold text-slate-700">Invoice detail:</p>
                   <p className="">Unwrapped</p>
@@ -36,7 +36,7 @@ const PrintBill = ({ isModalOpen, setIsModalOpen }) => {
                     <p className="">24-09-2024</p>
                   </div>
                 </div>
-                <div className="text-md text-slate-500">
+                <div className="text-md text-slate-500 sm:block hidden">
                   <div>
                     <p className="font-bold text-slate-700">Terms:</p>
                     <p className="">0 Days</p>
@@ -52,53 +52,65 @@ const PrintBill = ({ isModalOpen, setIsModalOpen }) => {
               <table className="min-w-full divide-y divide-slate-500 overflow-hidden">
                 <thead className="">
                   <tr className="border-b border-slate-200">
-                    <th className="py-3.5 pl-4 text-left text-sm text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden" scope="col">
+                    <th className="py-3.5 text-left text-sm text-slate-700 md:pl-0 sm:table-cell hidden" scope="col">
                       Visual
                     </th>
-                    <th className="py-3.5 pl-4 text-left text-sm text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden" scope="col">
+                    <th className="py-3.5 text-left text-sm text-slate-700 md:pl-0 sm:table-cell hidden" scope="col">
                       Title
                     </th>
-                    <th className="py-3.5 pl-4 text-center text-sm text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden" scope="col">
+                    <th className="py-3.5 text-left text-sm text-slate-700 md:pl-0 sm:hidden" colSpan="4" scope="col">
+                      Title
+                    </th>
+                    <th className="py-3.5 text-center text-sm text-slate-700 md:pl-0 sm:table-cell hidden" scope="col">
                       Price
                     </th>
-                    <th className="py-3.5 pl-4 text-center text-sm text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden" scope="col">
+                    <th className="py-3.5 text-center text-sm text-slate-700 md:pl-0 sm:table-cell hidden" scope="col">
                       Piece
                     </th>
-                    <th className="py-3.5 pl-4 text-end text-sm text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden" scope="col">
+                    <th className="py-3.5 text-end text-sm text-slate-700 md:pl-0" scope="col">
                       Total
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-slate-200">
-                    <td className="py-4">
+                    <td className="py-4 sm:table-cell hidden">
                       <img className="w-12 h-12 object-cover" src="https://i.lezzet.com.tr/images-xxlarge-secondary/elma-nasil-yenir-221135ca-f383-474c-a4f5-ad02a45db978.jpg" alt="" />
                     </td>
                     <td className="py-4">
-                      <span className="font-medium">Apple</span>
+                      <div className="flex flex-col">
+                        <span className="font-medium">Apple</span>
+                        <span className="sm:hidden inline-block text-xs">1 unit at 2$</span>
+                      </div>
                     </td>
-                    <td className="py-4 text-center">
+                    <td className="py-4 text-center sm:table-cell hidden">
                       <span className="font-medium">2$</span>
                     </td>
-                    <td className="py-4 text-center">
+                    <td className="py-4 sm:text-center text-right sm:table-cell hidden">
                       <span className="font-medium">2</span>
                     </td>
-                    <td className="py-4 text-end">
+                    <td className="py-4 text-right" colSpan={4}>
                       <span className="font-medium">2.00$</span>
                     </td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th className="text-right pt-6" colSpan="4" scope="row">
+                    <th className="text-right pt-6 sm:table-cell hidden" colSpan="4" scope="row">
+                      <span className="font-normal text-slate-700">Sub total</span>
+                    </th>
+                    <th className="text-left pt-6 sm:hidden" colSpan="4" scope="row">
                       <span className="font-normal text-slate-700">Sub total</span>
                     </th>
                     <th className="text-right pt-6" scope="row">
-                      <span className="font-normal text-slate-700">2.00$</span>
+                      <p className="font-normal text-slate-700">2.00$</p>
                     </th>
                   </tr>
                   <tr>
-                    <th className="text-right pt-4" colSpan="4" scope="row">
+                    <th className="text-right pt-4 sm:table-cell hidden" colSpan="4" scope="row">
+                      <span className="font-normal text-slate-700">Tax</span>
+                    </th>
+                    <th className="text-left pt-4 sm:hidden" colSpan="4" scope="row">
                       <span className="font-normal text-slate-700">Tax</span>
                     </th>
                     <th className="text-right pt-4" scope="row">
@@ -106,7 +118,10 @@ const PrintBill = ({ isModalOpen, setIsModalOpen }) => {
                     </th>
                   </tr>
                   <tr>
-                    <th className="text-right pt-4" colSpan="4" scope="row">
+                    <th className="text-right pt-4 sm:table-cell hidden" colSpan="4" scope="row">
+                      <span className="font-normal text-slate-700">Total</span>
+                    </th>
+                    <th className="text-left pt-4 sm:hidden" colSpan="4" scope="row">
                       <span className="font-normal text-slate-700">Total</span>
                     </th>
                     <th className="text-right pt-4" scope="row">
