@@ -35,11 +35,11 @@ const Header = () => {
             <CopyOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">invoice</span>
           </Link>
-          <Link to={"/"} className="menu-Link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/customers"} className="menu-Link flex flex-col items-center hover:text-[#40a9ff] transition-all">
             <UserOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">customers</span>
           </Link>
-          <Link to={"/"} className="menu-Link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/statistics"} className="menu-Link flex flex-col items-center hover:text-[#40a9ff] transition-all">
             <BarChartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">statistics</span>
           </Link>
