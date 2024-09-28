@@ -1,5 +1,6 @@
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, Carousel } from 'antd'
 import { Link } from "react-router-dom";
+import AuthCarousel from '../../components/auth/AuthCarousel';
 
 
 const Register = () => {
@@ -29,7 +30,18 @@ const Register = () => {
             <p>Already have an account?</p> <Link className="text-blue-600" to={"/login"}>Login here</Link>
           </div>
         </div>
-        <div className="xl:w-4/6">right</div>
+        <div className="xl:w-4/6 lg:w-3/5 md:1/2 md:flex hidden bg-[#6c63ff]">
+          <div className="w-full h-full flex items-center">
+            <div className="w-full">
+              <Carousel className="!h-full" autoplay>
+                <AuthCarousel img={"/images/responsive.svg"} title={"Responsive"} text={"Compatibility with All Device Sizes"} />
+                <AuthCarousel img={"/images/statistic.svg"} title={"Statistic"} text={"Extensive Statistics"} />
+                <AuthCarousel img={"/images/customer.svg"} title={"Customer Satisfaction"} text={"Customers Satisfied With the Product at the End of the Experience"} />
+                <AuthCarousel img={"/images/admin.svg"} title={"Admin Panel"} text={"Single-Place Management"} />
+              </Carousel>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
