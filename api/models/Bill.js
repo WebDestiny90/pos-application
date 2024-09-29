@@ -15,4 +15,4 @@ const BillScheme = mongoose.Schema(
 )
 
 const Bill = mongoose.model("bills", BillScheme);
-module.exports = Category;
+module.exports = Bill;
