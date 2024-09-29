@@ -19,7 +19,15 @@ const Register = () => {
             <Form.Item label="Password" name={"userpassword"} rules={[{ required: true, message: "Please input your Password!" }]}>
               <Input.Password />
             </Form.Item>
-            <Form.Item label="Confirm password" name={"userpasswordconfirm"} rules={[{ required: true, message: "Please input your Password!" }]}>
+            <Form.Item label="Confirm password" name={"userpasswordconfirm"} dependencies={["userpassword"]} rules={[{ required: true, message: "Please input your Password!" }, ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("userpassword") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error("The two passwords that you entered do not match"));
+              },
+            }),
+            ]}>
               <Input.Password />
             </Form.Item>
             <Form.Item>
