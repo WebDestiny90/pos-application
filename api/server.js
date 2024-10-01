@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 //! routes
 const categoryRoute = require("./routes/categories.js")
 const productRoute = require("./routes/products.js")
+const billRoute = require("./routes/bills.js")
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
+app.use("/api/bills", billRoute);
 
 // app.get("/", (req, res) => res.send("Test"));
 
