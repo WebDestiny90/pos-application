@@ -3,7 +3,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+
+//! routes
 const categoryRoute = require("./routes/categories.js")
+const productRoute = require("./routes/products.js")
 
 dotenv.config();
 
@@ -25,6 +28,7 @@ const connect = async () => {
 app.use(express.json());
 app.use(cors());
 app.use("/api/categories", categoryRoute);
+app.use("/api/products", productRoute);
 
 // app.get("/", (req, res) => res.send("Test"));
 
