@@ -30,7 +30,7 @@ router.put("/update-product", async (req, res) => {
     await Product.findOneAndUpdate({ _id: req.body.productId }, req.body)
     res.status(200).json("Item updated successfully");
   } catch (error) {
-    console.error(error)
+    res.status(500).json(error);
   }
 });
 
@@ -40,7 +40,7 @@ router.delete("/delete-product", async (req, res) => {
     await Product.findOneAndDelete({ _id: req.body.productId })
     res.status(200).json("Item deleted successfully");
   } catch (error) {
-    console.error(error)
+    res.status(500).json(error);
   }
 });
 

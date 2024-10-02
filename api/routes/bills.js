@@ -9,7 +9,7 @@ router.get("/get-all", async (req, res) => {
     const bills = await Bill.find();
     res.status(200).json(bills);
   } catch (error) {
-    console.error(error)
+    res.status(500).json(error);
   }
 });
 
