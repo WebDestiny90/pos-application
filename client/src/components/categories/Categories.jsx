@@ -3,7 +3,7 @@ import { Button, Form, Input, message, Modal } from 'antd';
 import { useState } from "react";
 import "./style.css"
 
-const Categories = () => {
+const Categories = ({ categories, setCategories }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [form] = Form.useForm();
 
@@ -16,6 +16,7 @@ const Categories = () => {
       });
       message.success("New category added successfully")
       form.resetFields()
+      setCategories([...categories, values])
     } catch (error) {
       console.error(error)
     }
@@ -24,48 +25,15 @@ const Categories = () => {
   return (
     <aside>
       <ul className="flex md:flex-col gap-4 text-lg">
-        <li className="category-item">
-          <p>All</p>
-        </li>
-        <li className="category-item">
-          <p>Products</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
-        <li className="category-item">
-          <p>Drink</p>
-        </li>
+        {
+          categories.map(({ _id, title }) => {
+            return (
+              <li key={_id} className="category-item">
+                <p>{title}</p>
+              </li>
+            )
+          })
+        }
         <li className="category-item bg-purple-800" onClick={() => setIsAddModalOpen(true)}>
           <PlusOutlined className="md:text-2xl" />
         </li>
