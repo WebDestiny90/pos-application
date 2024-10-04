@@ -1,26 +1,12 @@
-import { PlusOutlined } from "@ant-design/icons"
-import { Button, Form, Input, message, Modal } from 'antd';
 import { useState } from "react";
-import "./style.css"
+import { EditOutlined, PlusOutlined } from "@ant-design/icons"
+import Add from "./Add";
+import Edit from "./Edit";
+import "./style.css";
 
 const Categories = ({ categories, setCategories }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [form] = Form.useForm();
-
-  const onFinish = (values) => {
-    try {
-      fetch("http://localhost:5000/api/categories/add-category", {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
-      });
-      message.success("New category added successfully")
-      form.resetFields()
-      setCategories([...categories, values])
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   return (
     <aside>
@@ -37,16 +23,11 @@ const Categories = ({ categories, setCategories }) => {
         <li className="category-item bg-purple-800" onClick={() => setIsAddModalOpen(true)}>
           <PlusOutlined className="md:text-2xl" />
         </li>
-        <Modal title="Add new category" footer={false} open={isAddModalOpen} onCancel={() => setIsAddModalOpen(false)}>
-          <Form layout="vertical" onFinish={onFinish} form={form}>
-            <Form.Item name="title" label="Add category" rules={[{ required: true, message: "Category field cannot be empty" }]}>
-              <Input />
-            </Form.Item>
-            <Form.Item className="flex justify-end mb-0">
-              <Button type="primary" htmlType="submit">Create</Button>
-            </Form.Item>
-          </Form>
-        </Modal>
+        <li className="category-item bg-orange-800" onClick={() => setIsEditModalOpen(true)}>
+          <EditOutlined className="md:text-2xl" />
+        </li>
+        <Add isAddModalOpen={isAddModalOpen} setIsAddModalOpen={setIsAddModalOpen} categories={categories} setCategories={setCategories} />
+        <Edit isEditModalOpen={isEditModalOpen} setIsEditModalOpen={setIsEditModalOpen} />
       </ul>
     </aside>
   )
